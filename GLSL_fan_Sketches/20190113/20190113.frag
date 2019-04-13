@@ -3,6 +3,13 @@
 // Ctrl + m or Command + m: toggle visibility for codepane
 // ----------------------------------------------------------------------------
 precision mediump float;
+uniform vec2  resolution;     // resolution (width, height)
+uniform vec2  mouse;          // mouse      (0.0 ~ 1.0)
+uniform float time;           // time       (1second == 1.0)
+uniform sampler2D backbuffer; // previous scene
+
+const float PI = 3.1415926;
+
 vec3 hsv(float h, float s, float v){
     vec4 t = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
     vec3 p = abs(fract(vec3(h) + t.xyz) * 6.0 - vec3(t.w));
